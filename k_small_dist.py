@@ -14,7 +14,6 @@ def calculate_small(points):
             if dist<distance:
                 distance = dist
                 lowest = [points[a],points[b]]
-    print(result)
     return (lowest,distance**0.5)
 
 

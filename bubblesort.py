@@ -9,5 +9,15 @@ def sorts(arr:list):
 
     return arr
 
-print(sorts([7,5,1,2,7,0,9,6,7,0,9,0.78,-5]))
+
+'''Insertion sort'''
+def insertion_sort(arr:list):
+    for a in range(len(arr)):
+        x = arr[a]
+        j = a -1
+        while j>=0 and arr[j]> x:
+            arr[j+1]= arr[j]
+            j-=1
+        arr[j+1]=x
+    
         

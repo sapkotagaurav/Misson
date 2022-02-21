@@ -1,8 +1,8 @@
 def num_ways(n):
-    if n==1 or n==0:
-        return 1
+    phi=(1+5**0.5)/2
+    phi_2=-1/phi
+    ret = (phi**n -phi_2**n)/(5**0.5)
+    return int(ret)
+    
 
-    result = num_ways(n-1) +num_ways(n-2)
-    return result
-
-print(num_ways(5))
+print(num_ways(2))
