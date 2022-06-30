@@ -36,6 +36,7 @@ class LinkedList:
         return llist
                
     def reverse(self):
+        pass
         
           
     

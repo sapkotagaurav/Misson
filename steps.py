@@ -5,4 +5,4 @@ def num_ways(n):
     return int(ret)
     
 
-print(num_ways(2))
+print(num_ways(3))
