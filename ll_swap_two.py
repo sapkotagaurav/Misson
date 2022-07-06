@@ -54,6 +54,29 @@ def add_two(l1,l2):
     else:l_ret.next = None
     return l_ret
 
+def toLL(l):
+    if not l:
+        return None
+    ret = ListNode(l[0])
+    ret.next = toLL(l[1:])
+    return ret
+
+
+def merge_two_sorted(l1,l2):
+    ret = None
+    if not l1:
+        return l2
+    
+    if not l2:
+        return l1
+    
+    ret = l1 if l1.val< l2.val else l2
+    if l1.val < l2.val:
+        ret.next = merge_two_sorted(l1.next,l2)
+    else:
+        ret.next = merge_two_sorted(l1,l2.next)
+    return ret
+
 
 
 def main():
@@ -66,7 +89,11 @@ def main():
 
     #printList(swapTwo(m4))
     print()
-    print(type (add_two(m4,m1)))
-    printList(add_two(m4,m1))
+    #print(type (add_two(m4,m1)))
+    #printList(add_two(m4,m1))
+
+    a = toLL([1])
+    b = toLL([1,3,4])
+    printList(merge_two_sorted(a,b))
 
 main()
