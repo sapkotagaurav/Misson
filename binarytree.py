@@ -1,54 +1,31 @@
 
 
 class Node:
-    def __init__(self,data) -> None:
-        self.data = data
+    def __init__(self,val) -> None:
+        self.val = val
         self.right = None
         self.left = None
-    
-    def insert(self, data):
-        if self.data:
-            if data<self.data:
-                if self.left is None:
-                    self.left = Node(data)
-                else:
-                    self.left.insert(data)
-            elif data>self.data:
-                if self.right is None:
-                    self.right = Node(data)
-                else:
-                    self.right.insert(data)
-        else:
-            self.data = data
-            
-    def get_root(self,data):
-        if self.data:
-            if self.left == data or self.right==data:
-                return self.data
-        
-        
-        
-            
-            
-            
-    def printtree(self):
-        if self.left:
-            self.left.printtree()
-        print(self.data)
-        if self.right:
-            self.right.printtree()
             
         
     
         
 
+def levelorder(root):
+    if root is None:
+        return []
+    if not root.left and not root. right:
+        return root.val
+    if root.left or root.right:
+        a =[[root.val],[(levelorder(root.left)), levelorder(root.right)]]
+        return a
+
+
 if __name__ == "__main__":
-    ab = Node(54)
-    ab.insert(25)
-    ab.insert(4)
-    ab.insert(32)
-    ab.insert(21)
-    ab.insert(110)
-    ab.insert(49)
-    ab.printtree()
+    a=Node(5)
+    a.left=b=Node(6)
+    b.left = Node(4)
+    a.right = Node(7)
+    print(levelorder(a))
+    
+
         

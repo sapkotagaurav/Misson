@@ -38,21 +38,24 @@ def reverseLL(l:ListNode):
     return temp
 
 def add_two(l1,l2):
+    sum = ListNode(0)
+    cur = sum
 
     carry=0
-    arr =[]
-    l_ret = ListNode(5)
-    if l1 and l2:
-        if l1.val +l2.val + carry<10:
-            l_ret = ListNode(val = l1.val+l2.val+carry)
-            carry=0
-        else:
-            l_ret = ListNode(val =(l1.val+l2.val+carry)%10)
-            carry = 1
-        
-        l_ret.next =add_two(l1.next,l2.next)
-    else:l_ret.next = None
-    return l_ret
+    while l1 or l2 or carry:
+        tot= carry
+        if l1:
+            tot += l1.val
+            l1=l1.next
+        if l2:
+            tot+=l2.val
+            l2 =l2.next
+        carry = tot//10
+        res =  tot%10
+        cur.next = ListNode(res)
+        cur = cur.next
+    return sum.next
+
 
 def toLL(l):
     if not l:
@@ -92,8 +95,8 @@ def main():
     #print(type (add_two(m4,m1)))
     #printList(add_two(m4,m1))
 
-    a = toLL([1])
-    b = toLL([1,3,4])
-    printList(merge_two_sorted(a,b))
+    a = toLL([9,9,9,9])
+    b = toLL([9,9])
+    printList(add_two(a,b))
 
 main()
