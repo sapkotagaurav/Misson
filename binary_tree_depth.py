@@ -1,3 +1,6 @@
+import math
+
+
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
@@ -25,3 +28,5 @@ def main():
     print(maxDepth(ae4))
 
 main()
+
+math.e
